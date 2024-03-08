@@ -11,7 +11,6 @@ const main = async() => {
         }
     })
    const get = await prisma.post.findMany();
-   console.log(get);
 }
 
 main()
