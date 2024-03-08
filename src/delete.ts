@@ -5,14 +5,14 @@ const prisma = new PrismaClient();
 const deleteData = async () => {
     // const singleDelete = await prisma.post.delete({
     //     where: {
-    //         id: 1
+    //         id: 23
     //     }
     // });
 
-    const deleteMany = await prisma.post.deleteMany({})
+    // const deleteMany = await prisma.post.deleteMany({})
 
-    
-    console.log(deleteMany);
+
+    console.log();
 };
 
 deleteData();
