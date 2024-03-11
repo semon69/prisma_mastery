@@ -14,13 +14,46 @@ datasource db {
 }
 
 model Post {
-  id Int @id @default(autoincrement())
-  title String
-  content String
-  published Boolean @default(false)
-  authorName String?
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  published Boolean  @default(false)
+  authorId  Int
+  author    User     @relation(fields: [authorId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@map("posts")
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  userName String   @unique
+  email    String   @unique
+  role     UserRole
+  Profile  Profile?
+  Post     Post[]
+
+  @@map("users")
+}
+
+model Profile {
+  id     Int     @id @default(autoincrement())
+  bio    String?
+  userId Int     @unique
+  user   User    @relation(fields: [userId], references: [id])
+
+  @@map("profiles")
+}
+
+model Category {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  @@map("categories")
+}
+
+enum UserRole {
+  user
+  admin
 }
