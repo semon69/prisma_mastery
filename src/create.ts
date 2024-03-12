@@ -4,41 +4,41 @@ const prisma = new PrismaClient();
 
 const createData = async () => {
   // create single data
-  const createPost = await prisma.post.create({
-    data: {
-      title: "Title many",
-      content: "content many",
-      authorId: 1,
-      PostCategory: {
-        // create single post category
-        // create: {
-        //   // category: {
-        //   //     connect: {
-        //   //         id: 1
-        //   //     }
-        //   // }
-        //   categoryId: 3,
-        // },
+//   const createPost = await prisma.post.create({
+//     data: {
+//       title: "Title many 5",
+//       content: "content many 5",
+//       authorId: 4,
+//       PostCategory: {
+//         // create single post category
+//         create: {
+//           // category: {
+//           //     connect: {
+//           //         id: 1
+//           //     }
+//           // }
+//           categoryId: 4,
+//         },
 
-        // create multiple post categories
-        create: [
-            {
-                categoryId: 1
-            },
-            {
-                categoryId: 2
-            },
-            {
-                categoryId: 3
-            }
+//         // create multiple post categories
+//         // create: [
+//         //     {
+//         //         categoryId: 1
+//         //     },
+//         //     {
+//         //         categoryId: 2
+//         //     },
+//         //     {
+//         //         categoryId: 3
+//         //     }
 
-        ]
-      },
-    },
-    include: {
-      PostCategory: true,
-    },
-  });
+//         // ]
+//       },
+//     },
+//     // include: {
+//     //   PostCategory: true,
+//     // },
+//   });
 
   // create multiple
   // const createMany = await prisma.post.createMany({
@@ -76,20 +76,20 @@ const createData = async () => {
   //     ]
   // })
 
-  // const createUser = await prisma.user.create({
-  //     data: {
-  //         userName: 'user2',
-  //         email: 'user2@gmail.com',
-  //         role: UserRole.user
-  //     }
-  // })
+//   const createUser = await prisma.user.create({
+//       data: {
+//           userName: 'user4',
+//           email: 'user4@gmail.com',
+//           role: UserRole.user
+//       }
+//   })
 
-  // const createProfile = await prisma.profile.create({
-  //     data: {
-  //         bio: "This is bio",
-  //         userId: 1
-  //     }
-  // })
+//   const createProfile = await prisma.profile.create({
+//       data: {
+//           bio: "This is bio 4",
+//           userId: 4
+//       }
+//   })
 
   // const createCategory = await prisma.category.create({
   //     data: {
@@ -97,7 +97,7 @@ const createData = async () => {
   //     }
   // })
 
-  console.log(createPost);
+  console.log();
 };
 
 createData();
