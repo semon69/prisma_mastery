@@ -9,7 +9,7 @@ const filtering = async () => {
         {
           title: {
             contains: "Title",
-          }
+          },
         },
         {
           published: true,
@@ -24,7 +24,7 @@ const filtering = async () => {
         {
           title: {
             contains: "Title",
-          }
+          },
         },
         {
           published: true,
@@ -39,21 +39,49 @@ const filtering = async () => {
         {
           title: {
             contains: "Title",
-          }
-        }
+          },
+        },
       ],
     },
   });
 
   const startWith = await prisma.post.findMany({
     where: {
-        title: {
-            startsWith: "Ramadan" // endsWith, contains, equals
+      title: {
+        startsWith: "Ramadan", // endsWith, contains, equals
+      },
+    },
+  });
+
+  const userArray = ["user1", "user2",  "user3", "user4"];
+
+  const userNamesByArray = await prisma.user.findMany({
+    where: {
+        userName: {
+            in: userArray
         }
     }
   })
 
-  console.log(startWith);
+
+  const inDepthFiltering = await prisma.user.findUnique({
+    where: {
+        id: 1
+    },
+    include: {
+        post: {
+            include: {
+                PostCategory: {
+                    include: {
+                        category: true,
+                    }
+                }
+            }
+        }
+    }
+  })
+
+  console.dir(inDepthFiltering, {depth: Infinity});
 };
 
 filtering();
