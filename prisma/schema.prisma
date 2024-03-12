@@ -32,8 +32,8 @@ model User {
   userName String   @unique
   email    String   @unique
   role     UserRole @default(user)
-  Profile  Profile?
-  Post     Post[]
+  profile  Profile?
+  post     Post[]
 
   @@map("users")
 }
@@ -50,7 +50,7 @@ model Profile {
 model Category {
   id           Int            @id @default(autoincrement())
   name         String
-  PostCategory PostCategory[]
+  postCategory PostCategory[]
 
   @@map("categories")
 }

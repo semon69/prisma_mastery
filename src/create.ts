@@ -10,14 +10,29 @@ const createData = async () => {
       content: "content many",
       authorId: 1,
       PostCategory: {
-        create: {
-          // category: {
-          //     connect: {
-          //         id: 1
-          //     }
-          // }
-          categoryId: 3,
-        },
+        // create single post category
+        // create: {
+        //   // category: {
+        //   //     connect: {
+        //   //         id: 1
+        //   //     }
+        //   // }
+        //   categoryId: 3,
+        // },
+
+        // create multiple post categories
+        create: [
+            {
+                categoryId: 1
+            },
+            {
+                categoryId: 2
+            },
+            {
+                categoryId: 3
+            }
+
+        ]
       },
     },
     include: {
